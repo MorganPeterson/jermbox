@@ -362,7 +362,7 @@ static JanetReg cfuns[] = {
   {"set-clear-attributes", cfun_tb_set_clear_attributes, "Clears internal back buffer using supplied fg/bg colors"},
   {"present", cfun_tb_present, "Synchronizes internal backbuffer with termainal"},
   {"set-cursor", cfun_tb_set_cursor, "Set cursor position"},
-  {"set-cursor", cfun_tb_put_cell, "Changes cell's parameters"},
+  {"put-cell", cfun_tb_put_cell, "Changes cell's parameters"},
   {"change-cell", cfun_tb_change_cell, "Changes cell's parameters"},
   {"blit", cfun_tb_blit, "Copies the buffer from given positions"},
   {"select-input-mode", cfun_tb_select_input_mode, "Set input mode"},
