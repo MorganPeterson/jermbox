@@ -17,5 +17,9 @@
   :cflags cflags
   :source ["src/jermbox.c"
            "termbox_next/src/termbox.c"
-           "termbox_next/src/utf8.c"])
+           "termbox_next/src/utf8.c"
+           "termbox_next/src/term.c"
+           "termbox_next/src/ringbuffer.c"
+           "termbox_next/src/input.c"
+           "termbox_next/src/memstream.c"])
 
