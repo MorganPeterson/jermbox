@@ -4,7 +4,7 @@
 
 /* types */
 static const JanetAbstractType tb_event_jermbox = {
-  "event",
+  "tb_event",
   JANET_ATEND_NAME
 };
 
@@ -12,6 +12,79 @@ static const JanetAbstractType tb_cell_jermbox = {
   "tb_cell",
   JANET_ATEND_NAME
 };
+
+/* Event Initialization and Handlers */
+static Janet
+cfun_init_event (int32_t argc, Janet *argv) {
+  janet_fixarity(argc, 0);
+  (void) argv;
+  struct tb_event *event = janet_abstract(&tb_event_jermbox, sizeof(struct tb_event));
+  return janet_wrap_abstract(event);
+}
+
+static Janet
+cfun_event_type (int32_t argc, Janet *argv) {
+  janet_fixarity(argc, 1);
+  struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
+  int type = (int) event->type;
+  return janet_wrap_integer(type);
+}
+
+static Janet
+cfun_event_modifier (int32_t argc, Janet *argv) {
+  janet_fixarity(argc, 1);
+  struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
+  int mod = (int) event->mod;
+  return janet_wrap_integer(mod);
+}
+
+static Janet
+cfun_event_key (int32_t argc, Janet *argv) {
+  janet_fixarity(argc, 1);
+  struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
+  int key = (int) event->key;
+  return janet_wrap_integer(key);
+}
+
+static Janet
+cfun_event_character (int32_t argc, Janet *argv) {
+  janet_fixarity(argc, 1);
+  struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
+  int ch = (int) event->ch;
+  return janet_wrap_integer(ch);
+}
+
+static Janet
+cfun_event_width (int32_t argc, Janet *argv) {
+  janet_fixarity(argc, 1);
+  struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
+  int w = (int) event->w;
+  return janet_wrap_integer(w);
+}
+
+static Janet
+cfun_event_height (int32_t argc, Janet *argv) {
+  janet_fixarity(argc, 1);
+  struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
+  int h = (int) event->h;
+  return janet_wrap_integer(h);
+}
+
+static Janet
+cfun_event_x (int32_t argc, Janet *argv) {
+  janet_fixarity(argc, 1);
+  struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
+  int x = (int) event->x;
+  return janet_wrap_integer(x);
+}
+
+static Janet
+cfun_event_y (int32_t argc, Janet *argv) {
+  janet_fixarity(argc, 1);
+  struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
+  int y = (int) event->y;
+  return janet_wrap_integer(y);
+}
 
 /* c function wrappers */
 static Janet
@@ -355,6 +428,15 @@ void janet_cdefs(JanetTable *env) {
 static JanetReg cfuns[] = {
   {"init", cfun_init, "Initializes the jermbox library"},
   {"init-file", cfun_init_file, "Initializes jermbox to a file"},
+  {"init-event", cfun_init_event, "Initializes an event struct"},
+  {"event-type", cfun_event_type, "return type from event"},
+  {"event-modifier", cfun_event_modifier, "return modifiers from event"},
+  {"event-key", cfun_event_key, "return one of the key constants"},
+  {"event-character", cfun_event_character, "return a unicode character"},
+  {"event-width", cfun_event_width, "return width if resized"},
+  {"event-height", cfun_event_height, "return height if resized"},
+  {"event-x", cfun_event_x, "if mouse used, return x coordinate"},
+  {"event-y", cfun_event_y, "if mouse used, return y coordinate"},
   {"shutdown", cfun_shutdown, "Shutdown and finalize jermbox"},
   {"width", cfun_tb_width, "Returns size of internal back buffer"},
   {"height", cfun_tb_height, "Returns size of internal back buffer"},
