@@ -1,6 +1,7 @@
 (declare-project
   :name "jermbox"
   :author "Morgan Peterson <lastyearsmodel@gmail.com"
+  :description "Terminal User Interface Using Termbox"
   :license "MIT"
   :url "https://github.com/MorganPeterson/jermbox"
   :repo "https://github.com/MorganPeterson/jermbox")

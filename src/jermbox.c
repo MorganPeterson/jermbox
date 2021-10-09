@@ -422,6 +422,7 @@ void janet_cdefs(JanetTable *env) {
   janet_def(env, "output-truecolor", janet_wrap_integer(TB_OUTPUT_TRUECOLOR), "termbox output truecolor");
 
   janet_def(env, "hide-cursor", janet_wrap_integer(TB_HIDE_CURSOR), "hide cursor");
+  janet_def(env, "eof", janet_wrap_integer(TB_EOF), "end of file");
 }
 
 /* function registry */
