@@ -1,10 +1,12 @@
 # Jermbox
 
-A Janet native module for working with nullgemm's [Termbox Next](https://github.com/nullgemm/termbox_next) for building an easier TUI.
+A Janet native module for working with a [forked version](https://github.com/MorganPeterson/termbox_next] of nullgemm's [Termbox Next](https://github.com/nullgemm/termbox_next).
+
+This module allows for easy buidng of terminal UIs.
 
 ## OS Requirements
 
-I can only guarantee that this will work on linux systems.
+This module is build and tested on Arch Linux. I can only guarantee that this will work on most linux systems.
 
 I don't have the means to test this on any other environment than Linux. If you would like to see it work on your OS of choice then feel free to put in a PR or fork from this repo.
 
