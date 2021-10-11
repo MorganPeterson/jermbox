@@ -1,6 +1,6 @@
 # Jermbox
 
-A Janet native module for working with a [forked version](https://github.com/MorganPeterson/termbox_next] of nullgemm's [Termbox Next](https://github.com/nullgemm/termbox_next).
+A Janet native module for working with a [forked version](https://github.com/MorganPeterson/termbox_next) of nullgemm's [Termbox Next](https://github.com/nullgemm/termbox_next).
 
 This module allows for easy buidng of terminal UIs.
 
