@@ -301,7 +301,7 @@ cfun_utf8_unicode_to_char (int32_t argc, Janet *argv) {
 
 /* Constants Registery */
 void janet_cdefs(JanetTable *env) {
-  // TB_KEYS
+  /* TB_KEYS */
   janet_def(env, "key-f1", janet_wrap_integer(TB_KEY_F1), "f1");
   janet_def(env, "key-f2", janet_wrap_integer(TB_KEY_F2), "f2");
   janet_def(env, "key-f3", janet_wrap_integer(TB_KEY_F3), "f3");
@@ -377,26 +377,26 @@ void janet_cdefs(JanetTable *env) {
   janet_def(env, "key-backspace2", janet_wrap_integer(TB_KEY_BACKSPACE2), "backspace2");
   janet_def(env, "key-ctrl-8", janet_wrap_integer(TB_KEY_CTRL_8), "ctrl 8");
 
-  // MODIFIERS
+  /* MODIFIERS */
   janet_def(env, "mod-alt", janet_wrap_integer(TB_MOD_ALT), "mod alt");
   janet_def(env, "mod-motion", janet_wrap_integer(TB_MOD_MOTION), "mod motion");
 
-  // ATTRIBUTES
+  /* ATTRIBUTES */
   janet_def(env, "bold", janet_wrap_integer(TB_BOLD), "bold");
   janet_def(env, "underline", janet_wrap_integer(TB_UNDERLINE), "underline");
   janet_def(env, "reverse", janet_wrap_integer(TB_REVERSE), "reverse");
 
-  // EVENTS
+  /* EVENTS */
   janet_def(env, "event-key", janet_wrap_integer(TB_EVENT_KEY), "event key");
   janet_def(env, "event-resize", janet_wrap_integer(TB_EVENT_RESIZE), "event resize");
   janet_def(env, "event-mouse", janet_wrap_integer(TB_EVENT_MOUSE), "event mouse");
 
-  // ERROR CODES RETURNED BY tb_init
+  /* ERROR CODES RETURNED BY tb_init */
   janet_def(env, "eunsupported-terminal", janet_wrap_integer(TB_EUNSUPPORTED_TERMINAL), "unsupported terminal");
   janet_def(env, "efailed-to-open-tty", janet_wrap_integer(TB_EFAILED_TO_OPEN_TTY), "failed to open tty");
   janet_def(env, "epipe-trap-error", janet_wrap_integer(TB_EPIPE_TRAP_ERROR), "pipe trap error");
 
-  // COLORS
+  /* COLORS */
   janet_def(env, "default", janet_wrap_integer(TB_DEFAULT), "default");
   janet_def(env, "black", janet_wrap_integer(TB_BLACK), "black");
   janet_def(env, "red", janet_wrap_integer(TB_RED), "red");
@@ -407,13 +407,13 @@ void janet_cdefs(JanetTable *env) {
   janet_def(env, "cyan", janet_wrap_integer(TB_CYAN), "cyan");
   janet_def(env, "white", janet_wrap_integer(TB_WHITE), "white");
 
-  // TB_INPUT_MODE
+  /* TB_INPUT_MODE */
   janet_def(env, "input-current", janet_wrap_integer(TB_INPUT_CURRENT), "termbox input current");
   janet_def(env, "input-esc", janet_wrap_integer(TB_INPUT_ESC), "termbox input esc");
   janet_def(env, "input-alt", janet_wrap_integer(TB_INPUT_ALT), "termbox input alt");
   janet_def(env, "input-mouse", janet_wrap_integer(TB_INPUT_MOUSE), "termbox input mouse");
 
-  // TB_OUTPUT_MODE
+  /* TB_OUTPUT_MODE */
   janet_def(env, "output-current", janet_wrap_integer(TB_OUTPUT_CURRENT), "termbox output current");
   janet_def(env, "output-normal", janet_wrap_integer(TB_OUTPUT_NORMAL), "termbox output normal");
   janet_def(env, "output-256", janet_wrap_integer(TB_OUTPUT_256), "termbox output 256");
