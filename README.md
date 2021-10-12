@@ -18,7 +18,7 @@ sudo jpm install https://github.com/MorganPeterson/jermbox
 
 ## Examples
 
-Exampe usage, after installation, can be found in the examples directory.
+Example usage can be found in the examples and test directory.
 
 ## Ackowledgement
 
