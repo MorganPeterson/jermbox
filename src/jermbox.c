@@ -26,64 +26,56 @@ static Janet
 cfun_event_type (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 1);
   struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
-  int type = (int) event->type;
-  return janet_wrap_integer(type);
+  return janet_wrap_integer((int)event->type);
 }
 
 static Janet
 cfun_event_modifier (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 1);
   struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
-  int mod = (int) event->mod;
-  return janet_wrap_integer(mod);
+  return janet_wrap_integer((int) event->mod);
 }
 
 static Janet
 cfun_event_key (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 1);
   struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
-  int key = (int) event->key;
-  return janet_wrap_integer(key);
+  return janet_wrap_integer((int) event->key);
 }
 
 static Janet
 cfun_event_character (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 1);
   struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
-  int ch = (int) event->ch;
-  return janet_wrap_integer(ch);
+  return janet_wrap_integer((int)event->ch);
 }
 
 static Janet
 cfun_event_width (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 1);
   struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
-  int w = (int) event->w;
-  return janet_wrap_integer(w);
+  return janet_wrap_integer((int)event->w);
 }
 
 static Janet
 cfun_event_height (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 1);
   struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
-  int h = (int) event->h;
-  return janet_wrap_integer(h);
+  return janet_wrap_integer((int)event->h);
 }
 
 static Janet
 cfun_event_x (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 1);
   struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
-  int x = (int) event->x;
-  return janet_wrap_integer(x);
+  return janet_wrap_integer((int)event->x);
 }
 
 static Janet
 cfun_event_y (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 1);
   struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
-  int y = (int) event->y;
-  return janet_wrap_integer(y);
+  return janet_wrap_integer((int)event->y);
 }
 
 /* c function wrappers */
@@ -106,7 +98,7 @@ cfun_init_file (int32_t argc, Janet *argv) {
   const char *f = janet_getcstring(argv, 0);
   int code = tb_init_file(f);
   if (code < 0) {
-    janet_panicf("jermbox init-file failed, code: %d");
+    janet_panicf("jermbox init-file failed, code: %d", code);
   }
   return janet_wrap_nil();
 }
@@ -124,18 +116,14 @@ static Janet
 cfun_tb_width (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 0);
   (void)argv;
-
-  int w = tb_width();
-  return janet_wrap_integer(w);
+  return janet_wrap_integer(tb_width());
 }
 
 static Janet
 cfun_tb_height (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 0);
   (void)argv;
-
-  int h = tb_height();
-  return janet_wrap_integer(h);
+  return janet_wrap_integer(tb_height());
 }
 
 static Janet
@@ -221,7 +209,7 @@ cfun_tb_select_input_mode (int32_t argc, Janet *argv) {
 
   int code = tb_select_input_mode(mode);
   if (code < 0) {
-    janet_panicf("jermbox select-input-mode failed, code: %d");
+    janet_panicf("jermbox select-input-mode failed, code: %d", code);
   }
 
   return janet_wrap_integer(mode);
@@ -234,7 +222,7 @@ cfun_tb_select_output_mode (int32_t argc, Janet *argv) {
 
   int code = tb_select_output_mode(mode);
   if (code < 0) {
-    janet_panicf("jermbox select-input-mode failed, code: %d");
+    janet_panicf("jermbox select-input-mode failed, code: %d", code);
   }
 
   return janet_wrap_integer(mode);
@@ -245,9 +233,8 @@ cfun_tb_peek_event (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 2);
   struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
   int timeout = janet_getinteger(argv, 1);
-  int code = tb_peek_event(event, timeout);
 
-  if (code == -1) {
+  if (tb_peek_event(event, timeout) == -1) {
     return janet_wrap_false();
   }
 
@@ -259,8 +246,7 @@ cfun_tb_poll_event (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 1);
 
   struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
-  int code = tb_poll_event(event);
-  if (code == -1) {
+  if (tb_poll_event(event) == -1) {
     return janet_wrap_false();
   }
   return janet_wrap_true();
