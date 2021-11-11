@@ -181,9 +181,9 @@ cfun_tb_change_cell (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 5);
   int x = janet_getinteger(argv, 0);
   int y = janet_getinteger(argv, 1);
-  uint32_t ch = (uint32_t) janet_getinteger(argv, 2);
-  uint32_t fg = (uint32_t) janet_getinteger(argv, 3);
-  uint32_t bg = (uint32_t) janet_getinteger(argv, 4);
+  uint32_t ch = janet_getinteger(argv, 2);
+  uint32_t fg = janet_getinteger(argv, 3);
+  uint32_t bg = janet_getinteger(argv, 4);
 
   tb_change_cell(x, y, ch, fg, bg);
   return janet_wrap_nil();

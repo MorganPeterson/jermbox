@@ -4,7 +4,7 @@
 (defer (jb/shutdown)
   (jb/init)	
 
-  (def- row 20)
+  (def- row 0)
   (def- msg "press 'q' to quit")
 
   (jb/change-cell 0 row 0x2591 jb/white jb/red)
