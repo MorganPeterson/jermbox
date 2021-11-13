@@ -373,9 +373,9 @@ void janet_cdefs(JanetTable *env) {
   janet_def(env, "reverse", janet_wrap_integer(TB_REVERSE), "reverse");
 
   /* EVENTS */
-  janet_def(env, "event-key", janet_wrap_integer(TB_EVENT_KEY), "event key");
-  janet_def(env, "event-resize", janet_wrap_integer(TB_EVENT_RESIZE), "event resize");
-  janet_def(env, "event-mouse", janet_wrap_integer(TB_EVENT_MOUSE), "event mouse");
+  janet_def(env, "jb-event-key", janet_wrap_integer(TB_EVENT_KEY), "event key");
+  janet_def(env, "jb-event-resize", janet_wrap_integer(TB_EVENT_RESIZE), "event resize");
+  janet_def(env, "jb-event-mouse", janet_wrap_integer(TB_EVENT_MOUSE), "event mouse");
 
   /* ERROR CODES RETURNED BY tb_init */
   janet_def(env, "eunsupported-terminal", janet_wrap_integer(TB_EUNSUPPORTED_TERMINAL), "unsupported terminal");
