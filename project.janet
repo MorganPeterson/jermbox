@@ -9,7 +9,6 @@
 (def cflags
   '["-std=c99"
     "-Wall"
-    "-Werror"
     "-D_POSIX_C_SOURCE=200809L"
     "-D_XOPEN_SOURCE"])
 
