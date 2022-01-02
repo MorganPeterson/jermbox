@@ -1,4 +1,4 @@
-#include <janet/janet.h>
+#include <janet.h>
 #include <stdio.h>
 #include "../termbox_next/src/termbox.h"
 
