@@ -234,10 +234,11 @@ cfun_tb_peek_event (int32_t argc, Janet *argv) {
   struct tb_event *event = ((struct tb_event *) janet_getabstract(argv, 0, &tb_event_jermbox));
   int timeout = janet_getinteger(argv, 1);
 
-  if (tb_peek_event(event, timeout) == -1) {
+  int result = tb_peek_event(event, timeout);
+
+  if (result == -1 || result == 0) {
     return janet_wrap_false();
   }
-
   return janet_wrap_true();
 }
 
