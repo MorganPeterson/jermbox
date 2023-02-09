@@ -256,9 +256,9 @@ cfun_tb_poll_event (int32_t argc, Janet *argv) {
 static Janet
 cfun_utf8_char_length (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 1);
-  
+
   const char *c = janet_getcstring(argv, 0);
-  
+
   int result = utf8_char_length(*c);
   return janet_wrap_integer(result);
 }
@@ -277,7 +277,7 @@ cfun_utf8_char_to_unicode (int32_t argc, Janet *argv) {
 static Janet
 cfun_utf8_unicode_to_char (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 2);
- 
+
   char *out = (char *) janet_getcstring(argv, 0);
   uint32_t c = (uint32_t) janet_getinteger(argv, 1);
 
@@ -414,34 +414,34 @@ void janet_cdefs(JanetTable *env) {
 
 /* function registry */
 static JanetReg cfuns[] = {
-  {"init", cfun_init, "Initializes the jermbox library"},
-  {"init-file", cfun_init_file, "Initializes jermbox to a file"},
-  {"init-event", cfun_init_event, "Initializes an event struct"},
-  {"event-type", cfun_event_type, "return type from event"},
-  {"event-modifier", cfun_event_modifier, "return modifiers from event"},
-  {"event-key", cfun_event_key, "return one of the key constants"},
-  {"event-character", cfun_event_character, "return a unicode character"},
-  {"event-width", cfun_event_width, "return width if resized"},
-  {"event-height", cfun_event_height, "return height if resized"},
-  {"event-x", cfun_event_x, "if mouse used, return x coordinate"},
-  {"event-y", cfun_event_y, "if mouse used, return y coordinate"},
-  {"shutdown", cfun_shutdown, "Shutdown and finalize jermbox"},
-  {"width", cfun_tb_width, "Returns size of internal back buffer"},
-  {"height", cfun_tb_height, "Returns size of internal back buffer"},
-  {"clear", cfun_tb_clear, "Clears internal back buffer using default colors"},
-  {"set-clear-attributes", cfun_tb_set_clear_attributes, "Clears internal back buffer using supplied fg/bg colors"},
-  {"present", cfun_tb_present, "Synchronizes internal backbuffer with termainal"},
-  {"set-cursor", cfun_tb_set_cursor, "Set cursor position"},
-  {"put-cell", cfun_tb_put_cell, "Changes cell's parameters"},
-  {"change-cell", cfun_tb_change_cell, "Changes cell's parameters"},
-  {"blit", cfun_tb_blit, "Copies the buffer from given positions"},
-  {"select-input-mode", cfun_tb_select_input_mode, "Set input mode"},
-  {"select-output-mode", cfun_tb_select_output_mode, "Set output mode"},
-  {"peek-event", cfun_tb_peek_event, "Wait for event for timout length"},
-  {"poll-event", cfun_tb_poll_event, "Wait for event forever"},
-  {"utf8-char-length", cfun_utf8_char_length, "get length of character"},
-  {"utf8-char-to-unicode", cfun_utf8_char_to_unicode, "Convert character"},
-  {"utf8-unicode-to-char", cfun_utf8_unicode_to_char, "Convert unicode"},
+  {"init", cfun_init, "(init)\n\nInitializes the jermbox library"},
+  {"init-file", cfun_init_file, "(init-file name)\n\nInitializes jermbox to a file"},
+  {"init-event", cfun_init_event, "(init-event)\n\nInitializes an event struct"},
+  {"event-type", cfun_event_type, "(event-type event)\n\nReturn type from event"},
+  {"event-modifier", cfun_event_modifier, "(event-modifier event)\n\nReturn modifiers from event"},
+  {"event-key", cfun_event_key, "(event-key event)\n\nReturn one of the key constants"},
+  {"event-character", cfun_event_character, "(event-character event)\n\nReturn a unicode character"},
+  {"event-width", cfun_event_width, "(event-width event)\n\nReturn width if resized"},
+  {"event-height", cfun_event_height, "(event-height event)\n\nReturn height if resized"},
+  {"event-x", cfun_event_x, "(event-x event)\n\nIf mouse used, return x coordinate"},
+  {"event-y", cfun_event_y, "(event-y event)\n\nIf mouse used, return y coordinate"},
+  {"shutdown", cfun_shutdown, "(shutdown)\n\nShutdown and finalize jermbox"},
+  {"width", cfun_tb_width, "(width)\n\nReturns size of internal back buffer"},
+  {"height", cfun_tb_height, "(height)\n\nReturns size of internal back buffer"},
+  {"clear", cfun_tb_clear, "(clear)\n\nClears internal back buffer using default colors"},
+  {"set-clear-attributes", cfun_tb_set_clear_attributes, "(set-clear-attributes fg bg)\n\nClears internal back buffer using supplied fg/bg colors"},
+  {"present", cfun_tb_present, "(present)\n\nSynchronizes internal backbuffer with termainal"},
+  {"set-cursor", cfun_tb_set_cursor, "(set-cursor x y)\n\nSet cursor position"},
+  {"put-cell", cfun_tb_put_cell, "(put-cell x y cell)\n\nChanges cell's parameters"},
+  {"change-cell", cfun_tb_change_cell, "(change-cell x y ch fg bg)\n\nChanges cell's parameters"},
+  {"blit", cfun_tb_blit, "(blit x y w h cells)\n\nCopies the buffer from given positions"},
+  {"select-input-mode", cfun_tb_select_input_mode, "(select-input-mode mode)\n\nSet input mode"},
+  {"select-output-mode", cfun_tb_select_output_mode, "(select-output-mode mode)\n\nSet output mode"},
+  {"peek-event", cfun_tb_peek_event, "(peek-event event)\n\nWait for event for timout length"},
+  {"poll-event", cfun_tb_poll_event, "(poll-event event)\n\nWait for event forever"},
+  {"utf8-char-length", cfun_utf8_char_length, "(utf8-char-length c)\n\nGet length of character"},
+  {"utf8-char-to-unicode", cfun_utf8_char_to_unicode, "(utf8-char-to-unicode out c)\n\nConvert character"},
+  {"utf8-unicode-to-char", cfun_utf8_unicode_to_char, "(utf8-unicode-to-char)\n\nConvert unicode"},
   {NULL, NULL, NULL}
 };
 
