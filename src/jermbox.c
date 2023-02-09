@@ -286,7 +286,7 @@ cfun_utf8_unicode_to_char (int32_t argc, Janet *argv) {
   return janet_wrap_integer(result);
 }
 
-/* Constants Registery */
+/* Constants Registry */
 void janet_cdefs(JanetTable *env) {
   /* TB_KEYS */
   janet_def(env, "key-f1", janet_wrap_integer(TB_KEY_F1), "f1");
@@ -430,14 +430,14 @@ static JanetReg cfuns[] = {
   {"height", cfun_tb_height, "(height)\n\nReturns size of internal back buffer"},
   {"clear", cfun_tb_clear, "(clear)\n\nClears internal back buffer using default colors"},
   {"set-clear-attributes", cfun_tb_set_clear_attributes, "(set-clear-attributes fg bg)\n\nClears internal back buffer using supplied fg/bg colors"},
-  {"present", cfun_tb_present, "(present)\n\nSynchronizes internal backbuffer with termainal"},
+  {"present", cfun_tb_present, "(present)\n\nSynchronizes internal back buffer with terminal"},
   {"set-cursor", cfun_tb_set_cursor, "(set-cursor x y)\n\nSet cursor position"},
   {"put-cell", cfun_tb_put_cell, "(put-cell x y cell)\n\nChanges cell's parameters"},
   {"change-cell", cfun_tb_change_cell, "(change-cell x y ch fg bg)\n\nChanges cell's parameters"},
   {"blit", cfun_tb_blit, "(blit x y w h cells)\n\nCopies the buffer from given positions"},
   {"select-input-mode", cfun_tb_select_input_mode, "(select-input-mode mode)\n\nSet input mode"},
   {"select-output-mode", cfun_tb_select_output_mode, "(select-output-mode mode)\n\nSet output mode"},
-  {"peek-event", cfun_tb_peek_event, "(peek-event event)\n\nWait for event for timout length"},
+  {"peek-event", cfun_tb_peek_event, "(peek-event event)\n\nWait for event for timeout length"},
   {"poll-event", cfun_tb_poll_event, "(poll-event event)\n\nWait for event forever"},
   {"utf8-char-length", cfun_utf8_char_length, "(utf8-char-length c)\n\nGet length of character"},
   {"utf8-char-to-unicode", cfun_utf8_char_to_unicode, "(utf8-char-to-unicode out c)\n\nConvert character"},
