@@ -222,7 +222,7 @@ cfun_tb_select_output_mode (int32_t argc, Janet *argv) {
 
   int code = tb_select_output_mode(mode);
   if (code < 0) {
-    janet_panicf("jermbox select-input-mode failed, code: %d", code);
+    janet_panicf("jermbox select-output-mode failed, code: %d", code);
   }
 
   return janet_wrap_integer(mode);
