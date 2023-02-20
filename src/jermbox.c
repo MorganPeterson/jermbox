@@ -437,7 +437,7 @@ static JanetReg cfuns[] = {
   {"blit", cfun_tb_blit, "(blit x y w h cells)\n\nCopies the buffer from given positions"},
   {"select-input-mode", cfun_tb_select_input_mode, "(select-input-mode mode)\n\nSet input mode"},
   {"select-output-mode", cfun_tb_select_output_mode, "(select-output-mode mode)\n\nSet output mode"},
-  {"peek-event", cfun_tb_peek_event, "(peek-event event)\n\nWait for event for timeout length"},
+  {"peek-event", cfun_tb_peek_event, "(peek-event event timeout-ms)\n\nWait for an event up to timeout-ms"},
   {"poll-event", cfun_tb_poll_event, "(poll-event event)\n\nWait for event forever"},
   {"utf8-char-length", cfun_utf8_char_length, "(utf8-char-length c)\n\nGet length of character"},
   {"utf8-char-to-unicode", cfun_utf8_char_to_unicode, "(utf8-char-to-unicode out c)\n\nConvert character"},
