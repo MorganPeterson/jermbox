@@ -138,8 +138,8 @@ cfun_tb_clear (int32_t argc, Janet *argv) {
 static Janet
 cfun_tb_set_clear_attributes (int32_t argc, Janet *argv) {
   janet_fixarity(argc, 2);
-  uint16_t fg = (uint16_t) janet_getinteger(argv, 0);
-  uint16_t bg = (uint16_t) janet_getinteger(argv, 1);
+  uint32_t fg = (uint32_t) janet_getinteger(argv, 0); // TODO!!!!
+  uint32_t bg = (uint32_t) janet_getinteger(argv, 1);
 
   tb_set_clear_attributes(fg, bg);
   return janet_wrap_nil();
