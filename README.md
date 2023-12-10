@@ -1,3 +1,7 @@
+# NOTICE
+
+__I am moving this repository to [Sourcehut](https://git.sr.ht/~nullevoid/jermbox). That means that this repository will be archived and any future development (if any) will be done there.__
+
 # Jermbox
 
 A Janet native module for working with a [forked version](https://github.com/MorganPeterson/termbox_next) of nullgemm's [Termbox Next](https://github.com/nullgemm/termbox_next).
